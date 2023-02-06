@@ -21,6 +21,8 @@ Implementation of SmartCalc v3.0 in C#.
 
 ## Chapter I
 
+![SmartCalc_v3.0_Desktop](misc/images/SmartCalc_v3.0_Desktop.png)
+
 Eve got out of the cab and checked the address from the text message again: 2121 West Compton Blvd. There was nothing noteworthy about the place, except a half-abandoned building, apparently a local bar in the past. As she approached it closer, Eve noticed two men actively discussing something. One of them turned around and looked at her. He said with a slight smirk:
 
 `-` "Let me guess, a mysterious text message with the promise of answers to all your questions led you here, too?" Thomas asked the girl.
