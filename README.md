@@ -202,3 +202,5 @@ Eve finished the calculator without too much trouble. She has been writing in C#
 As soon as everyone had finished their work, new messages from an anonymous person popped up on their phones:
 
 > Thank you. I see you all did well. That's great, even though the algorithms predicted it from the beginning. Please set up a secure connection to the server specified in the following message and connect to the specified chat room. There we will be able to talk freely and calmly. I also have some special information for Thomas and John regarding your friend, Seb. I will expect you in the chat room!
+
+💡 [Tap here](https://forms.yandex.ru/cloud/641822c8eb6146255acee6b5/) **to leave your feedback on the project**. Pedago Team really tries to make your educational experience better.
