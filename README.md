@@ -108,7 +108,7 @@ You need to implement SmartCalc v3.0:
 - You must stick to Microsoft Code Style when writing code
 - You need to develop a desktop application
 - Prepare the installer, which will install the application to the system with the standard settings (installation path, creating a shortcut)
-- Prepare an implementation with a graphical user interface for Mac OS, based on any GUI library or framework (GUI layer implementation in HTML/CSS/JS is acceptable):
+- Prepare an implementation with a graphical user interface for either Linux or Mac OS, based on any GUI library or framework (GUI layer implementation in HTML/CSS/JS is acceptable):
   * For Linux: .net 7, mono 
   * For Mac: any GUI library or framework 
 - The program must be implemented using the MVVM or MVP pattern, and
@@ -193,9 +193,8 @@ Add logging to the application:
 
 Make your application cross-platform:
 
-- Add support for Linux
-- Add support for Windows
-- The installer should also be available for Linux and Windows (several different installers are allowed)
+- Add support Linux, Mac and Windows
+- The installer should also be available for Linux, Mac and Windows (several different installers are allowed)
 
 
 ## Chapter IV
