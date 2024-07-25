@@ -3,6 +3,8 @@
 Implementation of SmartCalc v3.0 in C#.
 
 
+💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
+
 ## Contents
 
 1. [Chapter I](#chapter-i) \
@@ -195,5 +197,3 @@ Eve finished the calculator without too much trouble. She has been writing in C#
 As soon as everyone was done, new messages from an anonymous person appeared on their phones:
 
 > Thank you. I see you all did well. That's great, even though the algorithms predicted it all along. Please establish a secure connection to the server specified in the following message and connect to the chat room specified. There we will be able to talk freely and calmly. I also have some special information for Thomas and John regarding your friend Seb. See you in the chat room!
-
-💡 [Tap here](https://forms.yandex.ru/cloud/641822c8eb6146255acee6b5/) **to leave your feedback on the project**. Product Team really tries to make your educational experience better.
