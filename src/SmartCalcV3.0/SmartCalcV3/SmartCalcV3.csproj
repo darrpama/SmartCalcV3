@@ -9,8 +9,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Models\"/>
         <AvaloniaResource Include="Assets\**"/>
+    </ItemGroup>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <Exec Command="mkdir -p ./CoreLibs"/>
+        <Exec Command="cp ../CoreCpp/include/* ./CoreLibs"/>
+    </Target>
+
+    <ItemGroup>
+        <None Update="CoreLibs\SmartCalc2.a">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Folder Include="CoreLibs\"/>
     </ItemGroup>
 
     <ItemGroup>

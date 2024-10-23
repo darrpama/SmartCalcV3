@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using SmartCalcV3._0.ViewModels;
+using SmartCalcV3.ViewModels;
 
-namespace SmartCalcV3._0;
+namespace SmartCalcV3;
 
 public class ViewLocator : IDataTemplate
 {

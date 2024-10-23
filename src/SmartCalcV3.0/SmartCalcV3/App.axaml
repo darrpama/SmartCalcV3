@@ -1,15 +1,16 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="SmartCalcV3._0.App"
+             x:Class="SmartCalcV3.App"
              xmlns:local="using:SmartCalcV3._0"
+             xmlns:smartCalcV3="clr-namespace:SmartCalcV3"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <smartCalcV3:ViewLocator/>
     </Application.DataTemplates>
   
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>
+    
 </Application>

@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace SmartCalcV3._0.Views;
+namespace SmartCalcV3.Views;
 
 public partial class MainWindow : Window
 {
