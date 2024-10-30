@@ -1,18 +1,29 @@
 CC = g++
 CCFLAGS = -std=c++17
 PROJECTDIR = .
-INCLUDEDIR = src/include
+INCLUDEDIR = /include
 DYNAMICLIB = coreCpp.dylib
 DYNAMICLIBFLAGS = -fpic -shared
 
 all: build
 
 SOURCES = \
-    $(PROJECTDIR)/src/Wrapper.cc
+    $(PROJECTDIR)/Model/DllInterface.cc \
+    $(PROJECTDIR)/Model/Model.cc \
+    $(PROJECTDIR)/Model/Validator.cc
+
+HEADERS = \
+    $(PROJECTDIR)/Model/Arithmetic.h \
+    $(PROJECTDIR)/Model/DllInterface.h \
+    $(PROJECTDIR)/Model/Model.h \
+    $(PROJECTDIR)/Model/Validator.h
+
 
 $(DYNAMICLIB):
-	$(CC) $(DYNAMICLIBFLAGS) $(SOURCES) -I$(INCLUDEDIR) -o $@
-	mv $@ $(INCLUDEDIR)/
+	- mkdir .$(INCLUDEDIR)
+	$(CC) -std=c++17 $(DYNAMICLIBFLAGS) $(SOURCES) -I$(INCLUDEDIR) -o $@
+	cp $(HEADERS) .$(INCLUDEDIR)
+	mv $@ .$(INCLUDEDIR)/
 
 build: $(DYNAMICLIB)
 	cd src && dotnet run

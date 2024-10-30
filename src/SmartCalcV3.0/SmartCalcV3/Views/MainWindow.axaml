@@ -3,18 +3,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:SmartCalcV3.ViewModels"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        Width="600"
+        Height="600"
+        MaxWidth="600"
+        MaxHeight="600"
+        MinWidth="600"
+        MinHeight="600"
         x:Class="SmartCalcV3.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="SmartCalcV3._0">
+        Title="SmartCalcV3.0">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="NumericUpDown">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Styles>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid Margin="2">
+        <Grid.RowDefinitions>2*,*</Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>*,3*</Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="0" Column="0" Margin="2">
+            <Grid.RowDefinitions>*,*,*,*,*,*,4*</Grid.RowDefinitions>
+            <NumericUpDown Grid.Row="0" Watermark="x min"></NumericUpDown>
+            <NumericUpDown Grid.Row="1" Watermark="x max"></NumericUpDown>
+            <NumericUpDown Grid.Row="2" Watermark="y min"></NumericUpDown>
+            <NumericUpDown Grid.Row="3" Watermark="y max"></NumericUpDown>
+            <NumericUpDown Grid.Row="4" Watermark="x value"></NumericUpDown>
+            <Button Grid.Row="5" Content="Calculate" Margin="2,2,2,6"></Button>
+            <Grid Grid.Row="6" Margin="2">
+                <Grid.RowDefinitions>*,*,*</Grid.RowDefinitions>
+                <Button Grid.Row="0" Content="Draw"></Button>
+                <Button Grid.Row="1" Content="Rescale"></Button>
+                <Button Grid.Row="2" Content="Clear"></Button>
+            </Grid>
+        </Grid>
+        <ScottPlot:AvaPlot Grid.Row="0" Grid.Column="1" Name="AvaPlot1" Margin="2"/> 
+        
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="2">
+            <Grid.ColumnDefinitions>*,*,*,*,*,*</Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>*,*,*,*,*,*</Grid.RowDefinitions>
+            
+            <TextBox x:Name="ExpressionTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Expression}" Watermark="Expression" Margin="2"></TextBox>
+            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Answer}" Watermark="Answer" Margin="2"></TextBox>
+            <Button Click="Calculator_Button_OnClick" x:Name="DivButton" Grid.Row="0" Grid.Column="3" Content="/"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="OpenBracketButton" Grid.Row="0" Grid.Column="4" Content="("></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="CloseBracketButton" Grid.Row="0" Grid.Column="5" Content=")"></Button>
+            
+            <Button Click="Calculator_Button_OnClick" x:Name="AcButton" Grid.Row="1" Grid.Column="0" Content="AC" ></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="DelButton" Grid.Row="1" Grid.Column="1" Content="Del"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="PowButton" Grid.Row="1" Grid.Column="2" Content="^"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="MulButton" Grid.Row="1" Grid.Column="3" Content="*"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="ModButton" Grid.Row="1" Grid.Column="4" Content="mod"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="LnButton" Grid.Row="1" Grid.Column="5" Content="ln"></Button>
+            
+            <Button Click="Calculator_Button_OnClick" x:Name="SevenButton" Grid.Row="2" Grid.Column="0" Content="7"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="EightButton" Grid.Row="2" Grid.Column="1" Content="8"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="NineButton" Grid.Row="2" Grid.Column="2" Content="9"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="MinusButton" Grid.Row="2" Grid.Column="3" Content="-"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="SqrtButton" Grid.Row="2" Grid.Column="4" Content="sqrt"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="LogButton" Grid.Row="2" Grid.Column="5" Content="log"></Button>
+            
+            <Button Click="Calculator_Button_OnClick" x:Name="FourButton" Grid.Row="3" Grid.Column="0" Content="4"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="FiveButton" Grid.Row="3" Grid.Column="1" Content="5"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="SixButton" Grid.Row="3" Grid.Column="2" Content="6"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="PlusButton" Grid.Row="3" Grid.Column="3" Content="+"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="SinButton" Grid.Row="3" Grid.Column="4" Content="sin"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="ASinButton" Grid.Row="3" Grid.Column="5" Content="asin"></Button>
+            
+            <Button Click="Calculator_Button_OnClick" x:Name="OneButton" Grid.Row="4" Grid.Column="0" Content="1"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="TwoButton" Grid.Row="4" Grid.Column="1" Content="2"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="ThreeButton" Grid.Row="4" Grid.Column="2" Content="3"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="EButton" Grid.Row="4" Grid.Column="3" Content="e"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="CosButton" Grid.Row="4" Grid.Column="4" Content="cos"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="ACosButton" Grid.Row="4" Grid.Column="5" Content="acos"></Button>
+            
+            <Button Click="Calculator_Button_OnClick" x:Name="ZeroButton" Grid.Row="5" Grid.Column="0" Content="0"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="DotButton" Grid.Row="5" Grid.Column="1" Content="."></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="XButton" Grid.Row="5" Grid.Column="2" Content="x"></Button>
+            <Button Command="{Binding OnEqualButtonClickCommand}" x:Name="EqualsButton" Grid.Row="5" Grid.Column="3" Content="="></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="TanButton" Grid.Row="5" Grid.Column="4" Content="tan"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="ATanButton" Grid.Row="5" Grid.Column="5" Content="atan"></Button>
+        </Grid>
+    </Grid>
 
 </Window>
