@@ -17,7 +17,6 @@ std::string Model::CalculateExpression(const std::string &inputString) {
     Calculator();
     SetStrAnswer(answer_);
   } catch (const std::exception &e) {
-    // std::cerr << e.what() << '\n';
     SetStrAnswer(e);
     SetError(true);
   }
@@ -326,7 +325,7 @@ std::pair<std::vector<double>, std::vector<double>> Model::GetGraph(
     throw std::invalid_argument("X values is wrong");
   }
 
-  for (size_t i = 0; i < numSamples; i++) {
+  for (size_t i = 0; i <= numSamples; i++) {
     Reset();
     std::string tmpString(inputString);
     double xValue = xMin + i * step;
@@ -345,6 +344,23 @@ std::pair<std::vector<double>, std::vector<double>> Model::GetGraph(
     Calculator();
     yVector.push_back(GetDoubleAnswer());
   }
+  
+  Reset();
+  std::string tmpString(inputString);
+  double xValue = xMax;
+  xVector.push_back(xValue);
+  std::string numberString = std::to_string(xValue);
+  size_t found = tmpString.find('x');
+  while (found != std::string::npos) {
+    tmpString.replace(found, 1, "(" + numberString + ")");
+    found = tmpString.find('x', found + numberString.length());
+  }
+
+  validator_.IsNotCorrect(tmpString);
+  Parser(tmpString);
+  PolishParser();
+  Calculator();
+  yVector.push_back(GetDoubleAnswer());
 
   return std::make_pair(xVector, yVector);
 }

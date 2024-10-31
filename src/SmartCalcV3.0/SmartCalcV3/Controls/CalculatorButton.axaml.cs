@@ -5,9 +5,9 @@ using Avalonia.Markup.Xaml;
 
 namespace SmartCalcV3.Controls;
 
-public partial class UserControl1 : UserControl
+public partial class CalculatorButton : UserControl
 {
-    public UserControl1()
+    public CalculatorButton()
     {
         InitializeComponent();
     }

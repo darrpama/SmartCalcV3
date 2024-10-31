@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using LiveChartsCore.SkiaSharpView;
 
 namespace SmartCalcV3.Views;
 
@@ -32,4 +34,7 @@ public partial class MainWindow : Window
         }
     }
 
+    private void NumericUpDown_OnSpinned(object? sender, SpinEventArgs e)
+    {
+    }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using LiveChartsCore.Defaults;
 using ReactiveUI;
 
 namespace SmartCalcV3.Models
@@ -11,16 +12,16 @@ namespace SmartCalcV3.Models
         [DllImport("./CoreLibs/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
         private static extern string CalculateWrapper(string expression);
         
-        [DllImport("./include/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void GetGraphWrapper(string expression, double leftBound, double rightBound);
+        [DllImport("./CoreLibs/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
+        private static extern string GetGraphWrapper(string expression, double leftBound, double rightBound);
 
-        [DllImport("./include/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("./CoreLibs/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr GetXArrayWrapper();
 
-        [DllImport("./include/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("./CoreLibs/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr GetYArrayWrapper();
 
-        [DllImport("./include/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("./CoreLibs/coreCpp.dylib", CallingConvention = CallingConvention.Cdecl)]
         private static extern int FreeArrayMemoryWrapper(IntPtr ptr);
         
         public string Calculate(string expression)
@@ -29,38 +30,41 @@ namespace SmartCalcV3.Models
             {
                 expression = "0";
             }
-
-            try
-            {
-                var result = CalculateWrapper(expression);
-                Console.WriteLine(result);
-                return result;
-            }
-            catch (Exception e)
-            {
-                return e.Message;
-            }
+            
+            var result = CalculateWrapper(expression);
+            Console.WriteLine(result);
+            return result;
         }
         
-        public static void GetGraph(string? expression, double leftBound, double rightBound)
+        public List<ObservablePoint> GetGraph(string? expression, double leftBound, double rightBound)
         {
             if (String.IsNullOrWhiteSpace(expression))
             {
                 expression = "0";
             }
 
-            GetGraphWrapper(expression, leftBound, rightBound);
+            var result = GetGraphWrapper(expression, leftBound, rightBound);
+            
+            if (!string.IsNullOrWhiteSpace(result))
+            {
+                return new List<ObservablePoint>();
+            }
+            
             List<double> x = GetVector(GetXArrayWrapper);
             List<double> y = GetVector(GetYArrayWrapper);
-            foreach (var x_var in x)
+            
+            var points = new List<ObservablePoint>();
+            for (int i = 0; i < x.Count; i++)
             {
-                Console.WriteLine(x_var);
+                points.Add(new ObservablePoint(x[i], y[i]));
             }
+
+            return points;
         }
 
-        private static List<double> GetVector(Func<IntPtr> getVectorWrapper)
+        private List<double> GetVector(Func<IntPtr> getVectorWrapper)
         {
-            var size = 1000;
+            var size = 1001;
             var vectorPtr = getVectorWrapper();
             var vector = new double[size];
             Marshal.Copy(vectorPtr, vector, 0, size);

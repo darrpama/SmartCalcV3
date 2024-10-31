@@ -11,12 +11,23 @@ const char* CalculateWrapper(const char* expression)
 }
 
 extern "C" __attribute__ ((visibility ("default")))
-void GetGraphWrapper(const char* expression, double leftBound, double rightBound)
+const char* GetGraphWrapper(const char* expression, double leftBound, double rightBound)
 {
     std::string expr = expression;
-    std::pair<std::vector<double>, std::vector<double>> answer = _model.GetGraph(expr, leftBound, rightBound);
-    x = answer.first;
-    y = answer.second;
+    std::string answer = "";
+    try
+    {
+        std::pair<std::vector<double>, std::vector<double>> answer = _model.GetGraph(expr, leftBound, rightBound);
+        x = answer.first;
+        y = answer.second;
+    }
+    catch (const std::exception& e)
+    {
+         answer = e.what();
+    }
+    char* c_answer = new char[answer.size() + 1];
+    std::strcpy(c_answer, answer.c_str());
+    return c_answer;
 }
 
 extern "C" __attribute__ ((visibility ("default")))

@@ -11,7 +11,7 @@ extern "C" __attribute__ ((visibility ("default")))
 const char* CalculateWrapper(const char* expression);
 
 extern "C" __attribute__ ((visibility ("default")))
-void GetGraphWrapper(const char* expression, double leftBound, double rightBound);
+const char* GetGraphWrapper(const char* expression, double leftBound, double rightBound);
 
 extern "C" __attribute__ ((visibility ("default")))
 double* GetXArrayWrapper();
