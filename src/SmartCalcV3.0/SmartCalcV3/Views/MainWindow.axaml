@@ -22,107 +22,13 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
-    <Window.Styles>
-        <Style Selector="Button">
-            <Setter Property="Margin" Value="1"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        </Style>
-        <Style Selector="NumericUpDown">
-            <Setter Property="Margin" Value="2"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        </Style>
-    </Window.Styles>
+    <TabControl>
+        <TabItem Header="Calculator"
+                 Content="{Binding CalculatorContentViewModel}">
+        </TabItem>
+            
+            
+    </TabControl>
 
-    <Grid Margin="2">
-        <Grid.RowDefinitions>5*,*,4*</Grid.RowDefinitions>
-        
-        <lvc:CartesianChart
-            Grid.Row="0"
-            Margin="2"
-            Series="{Binding Series}"
-            XAxes="{Binding XAxes}"
-            YAxes="{Binding YAxes}"
-            DrawMarginFrame="{Binding Frame}"
-            ZoomMode="Y">
-        </lvc:CartesianChart> 
-        
-        <Grid Grid.Row="1" Margin="2">
-            
-            <Grid.ColumnDefinitions>*,2*,*,2*,*,2*</Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="x min" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <NumericUpDown Grid.Column="1" Watermark="min" TextAlignment="Left" Maximum="{Binding Xmax}" Value="{Binding Xmin}">
-                <NumericUpDown.ContextFlyout>
-                    <Flyout>
-                        <TextBlock Text="x min"/>
-                    </Flyout>
-                </NumericUpDown.ContextFlyout>
-            </NumericUpDown>
-            <TextBlock Grid.Column="2" Text="x max" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <NumericUpDown Grid.Column="3" Watermark="max" TextAlignment="Left" Minimum="{Binding Xmin}" Value="{Binding Xmax}">
-                <NumericUpDown.ContextFlyout>
-                    <Flyout>
-                        <TextBlock Text="x max"/>
-                    </Flyout>
-                </NumericUpDown.ContextFlyout>
-            </NumericUpDown>
-            
-            <TextBlock Grid.Column="4" Text="value" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <NumericUpDown Grid.Column="5" Value="{Binding XVal}" Watermark="x value">
-                <NumericUpDown.ContextFlyout>
-                    <Flyout>
-                        <TextBlock Text="x value"/>
-                    </Flyout>
-                </NumericUpDown.ContextFlyout>
-            </NumericUpDown>
-        </Grid>
-        <Grid Grid.Row="2" Margin="2">
-            <Grid.ColumnDefinitions>*,*,*,*,*,*</Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>*,*,*,*,*,*</Grid.RowDefinitions>
-            
-            <TextBox x:Name="ExpressionTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Expression}" Watermark="Expression" Margin="2"></TextBox>
-            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Answer}" Watermark="Answer" Margin="2"></TextBox>
-            <Button Click="Calculator_Button_OnClick" x:Name="DivButton" Grid.Row="0" Grid.Column="3" Content="/" HotKey="Divide"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="OpenBracketButton" Grid.Row="0" Grid.Column="4" Content="(" HotKey="Shift+D9"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="CloseBracketButton" Grid.Row="0" Grid.Column="5" Content=")" HotKey="Shift+D0"></Button>
-            
-            <Button Click="Calculator_Button_OnClick" x:Name="AcButton" Grid.Row="1" Grid.Column="0" Content="AC" HotKey="Delete"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="DelButton" Grid.Row="1" Grid.Column="1" Content="Del" HotKey="Back"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="PowButton" Grid.Row="1" Grid.Column="2" Content="^" HotKey="Shift+D6"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="MulButton" Grid.Row="1" Grid.Column="3" Content="*" HotKey="Shift+D8"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="ModButton" Grid.Row="1" Grid.Column="4" Content="mod" HotKey="M"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="LnButton" Grid.Row="1" Grid.Column="5" Content="ln" HotKey="Ctrl+L"></Button>
-            
-            <Button Click="Calculator_Button_OnClick" x:Name="SevenButton" Grid.Row="2" Grid.Column="0" Content="7" HotKey="D7"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="EightButton" Grid.Row="2" Grid.Column="1" Content="8" HotKey="D8"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="NineButton" Grid.Row="2" Grid.Column="2" Content="9" HotKey="D9"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="MinusButton" Grid.Row="2" Grid.Column="3" Content="-" HotKey="OemMinus"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="SqrtButton" Grid.Row="2" Grid.Column="4" Content="sqrt" HotKey="Q"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="LogButton" Grid.Row="2" Grid.Column="5" Content="log" HotKey="L"></Button>
-            
-            <Button Click="Calculator_Button_OnClick" x:Name="FourButton" Grid.Row="3" Grid.Column="0" Content="4" HotKey="D4"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="FiveButton" Grid.Row="3" Grid.Column="1" Content="5" HotKey="D5"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="SixButton" Grid.Row="3" Grid.Column="2" Content="6" HotKey="D6"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="PlusButton" Grid.Row="3" Grid.Column="3" Content="+" HotKey="OemPlus"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="SinButton" Grid.Row="3" Grid.Column="4" Content="sin" HotKey="S"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="ASinButton" Grid.Row="3" Grid.Column="5" Content="asin" HotKey="Ctrl+S"></Button>
-            
-            <Button Click="Calculator_Button_OnClick" x:Name="OneButton" Grid.Row="4" Grid.Column="0" Content="1" HotKey="D1"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="TwoButton" Grid.Row="4" Grid.Column="1" Content="2" HotKey="D2"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="ThreeButton" Grid.Row="4" Grid.Column="2" Content="3" HotKey="D3"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="EButton" Grid.Row="4" Grid.Column="3" Content="e" HotKey="E"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="CosButton" Grid.Row="4" Grid.Column="4" Content="cos" HotKey="C"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="ACosButton" Grid.Row="4" Grid.Column="5" Content="acos" HotKey="Ctrl+C"></Button>
-            
-            <Button Click="Calculator_Button_OnClick" x:Name="ZeroButton" Grid.Row="5" Grid.Column="0" Content="0" HotKey="D0"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="DotButton" Grid.Row="5" Grid.Column="1" Content="." HotKey="Decimal"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="XButton" Grid.Row="5" Grid.Column="2" Content="x" HotKey="X"></Button>
-            <Button Command="{Binding OnEqualButtonClickCommand}" x:Name="EqualsButton" HotKey="Enter" Grid.Row="5" Grid.Column="3" Content="="></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="TanButton" Grid.Row="5" Grid.Column="4" Content="tan" HotKey="T"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="ATanButton" Grid.Row="5" Grid.Column="5" Content="atan" HotKey="Ctrl+T"></Button>
-        </Grid>
-    </Grid>
+    
 </Window>
