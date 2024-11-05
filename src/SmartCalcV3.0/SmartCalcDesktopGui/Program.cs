@@ -2,7 +2,7 @@
 using Avalonia.ReactiveUI;
 using System;
 
-namespace SmartCalcV3;
+namespace SmartCalcDesktopGui;
 
 sealed class Program
 {

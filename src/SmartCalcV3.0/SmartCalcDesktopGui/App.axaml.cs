@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using SmartCalcV3.ViewModels;
-using SmartCalcV3.Views;
+using SmartCalcDesktopGui.ViewModels;
+using SmartCalcDesktopGui.Views;
 
-namespace SmartCalcV3;
+namespace SmartCalcDesktopGui;
 
 public partial class App : Application
 {

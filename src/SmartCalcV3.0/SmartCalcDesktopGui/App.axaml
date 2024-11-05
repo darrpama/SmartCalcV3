@@ -1,8 +1,8 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="SmartCalcV3.App"
-             xmlns:local="using:SmartCalcV3"
-             xmlns:smartCalcV3="clr-namespace:SmartCalcV3"
+             x:Class="SmartCalcDesktopGui.App"
+             xmlns:local="using:SmartCalcDesktopGui"
+             xmlns:smartCalcV3="clr-namespace:SmartCalcDesktopGui"
              RequestedThemeVariant="Default">
 
     <Application.DataTemplates>

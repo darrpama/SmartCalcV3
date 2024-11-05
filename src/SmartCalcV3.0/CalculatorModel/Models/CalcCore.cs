@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 using LiveChartsCore.Defaults;
-using ReactiveUI;
 
-namespace SmartCalcV3.Models
+namespace CalculatorModel.Models
 {
     public class CalcCore
     {

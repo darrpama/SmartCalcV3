@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using SmartCalcV3.ViewModels;
+using SmartCalcDesktopGui.ViewModels;
 
-namespace SmartCalcV3;
+namespace SmartCalcDesktopGui;
 
 public class ViewLocator : IDataTemplate
 {

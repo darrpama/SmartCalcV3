@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:SmartCalcV3.ViewModels"
+        xmlns:vm="clr-namespace:SmartCalcDesktopGui.ViewModels"
         xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
         Width="600"
@@ -11,10 +11,10 @@
         MaxHeight="600"
         MinWidth="600"
         MinHeight="600"
-        x:Class="SmartCalcV3.Views.MainWindow"
+        x:Class="SmartCalcDesktopGui.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="SmartCalcV3.0">
+        Title="SmartCalcDesktopGui.0">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,

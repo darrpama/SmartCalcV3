@@ -1,7 +1,6 @@
 using System;
 using System.Globalization;
 using ReactiveUI;
-using SmartCalcV3.Models;
 using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.Drawing;
@@ -11,8 +10,9 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.SkiaSharpView.Painting.Effects;
 using SkiaSharp;
 
+using CalculatorModel.Models;
 
-namespace SmartCalcV3.ViewModels;
+namespace SmartCalcDesktopGui.ViewModels;
 
 public class CalculatorViewModel: ViewModelBase
 {

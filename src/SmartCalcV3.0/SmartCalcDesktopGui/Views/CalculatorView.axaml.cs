@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace SmartCalcV3.Views;
+namespace SmartCalcDesktopGui.Views;
 
 public partial class CalculatorView : UserControl
 {

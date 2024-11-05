@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace SmartCalcV3.ViewModels;
+namespace SmartCalcDesktopGui.ViewModels;
 
 public class ViewModelBase : ReactiveObject
 {
