@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCalcDesktopGui", "Smar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorModel", "CalculatorModel\CalculatorModel.csproj", "{320216CD-9D8E-4370-98FB-CFC9DB3725C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorAPI", "CalculatorAPI\CalculatorAPI.csproj", "{EB5B299C-A442-4C36-9D6C-F81C1D438D53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{320216CD-9D8E-4370-98FB-CFC9DB3725C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{320216CD-9D8E-4370-98FB-CFC9DB3725C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{320216CD-9D8E-4370-98FB-CFC9DB3725C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB5B299C-A442-4C36-9D6C-F81C1D438D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB5B299C-A442-4C36-9D6C-F81C1D438D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB5B299C-A442-4C36-9D6C-F81C1D438D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB5B299C-A442-4C36-9D6C-F81C1D438D53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

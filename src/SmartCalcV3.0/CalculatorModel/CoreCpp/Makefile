@@ -24,6 +24,7 @@ $(DYNAMICLIB):
 	$(CC) -std=c++17 $(DYNAMICLIBFLAGS) $(SOURCES) -I$(INCLUDEDIR) -o $@
 	cp $(HEADERS) .$(INCLUDEDIR)
 	mv $@ .$(INCLUDEDIR)/
+	mv .$(INCLUDEDIR) ../CoreLibs
 
 build: $(DYNAMICLIB)
 	cd src && dotnet run
