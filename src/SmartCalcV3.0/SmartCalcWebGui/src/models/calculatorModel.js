@@ -5,8 +5,8 @@ class CalculatorModel {
     answer = null;
     calculatorService = new CalculatorService()
 
-    async calculateExpresson(expression) {
-        let answer = await this.calculatorService.calculate(expression)
+    async calculateExpression(expression) {
+        this.answer = await this.calculatorService.calculate(expression)
     }
 }
 

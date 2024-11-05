@@ -1,18 +1,18 @@
 <script setup>
 import CalculatorModel from '@/models/calculatorModel.js'
-import { reactive } from 'vue';
-
-var result = null;
+import { reactive, ref } from 'vue';
 
 const calculatorModel = reactive(new CalculatorModel())
+const expression = ref('');
+const result = ref(null);
 
 async function calculate() {
     try {
-        await calculatorModel.calculate(expression)
+        await calculatorModel.calculateExpression(expression.value)
+        result.value = calculatorModel.answer
     } catch ({ message }) {
         alert(message)
     }
-    result = calculatorModel.answer
 }
 
 </script>

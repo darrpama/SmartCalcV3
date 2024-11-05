@@ -7,13 +7,13 @@ class CalculatorService {
         let response
         try {
             response = await axios.post(
-                this.apiUri + `/calculator/calculate`,
-                {expression: this.expression}
+                this.apiUri + `/calculator/calculate?${expression}`,
             )
         } catch (error) {
             console.error("Error:", error);
         }
-        return response.data;
+        console.log(response)
+        return response;
     }
 }
 
