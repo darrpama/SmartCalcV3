@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCalcV3", "SmartCalcV3\SmartCalcV3.csproj", "{8AA39350-2474-4641-AA45-5326F892284A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CshCalculatorLibWrapper", "CshCalculatorLibWrapper\CshCalculatorLibWrapper.csproj", "{1CD0D7B8-25F1-47B2-995F-5FB1E47990CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AA39350-2474-4641-AA45-5326F892284A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA39350-2474-4641-AA45-5326F892284A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA39350-2474-4641-AA45-5326F892284A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA39350-2474-4641-AA45-5326F892284A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD0D7B8-25F1-47B2-995F-5FB1E47990CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD0D7B8-25F1-47B2-995F-5FB1E47990CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD0D7B8-25F1-47B2-995F-5FB1E47990CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD0D7B8-25F1-47B2-995F-5FB1E47990CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
