@@ -4,16 +4,19 @@ class CalculatorService {
     apiUri = import.meta.env.VITE_API_URI
 
     async calculate(expression) {
-        let response
         try {
-            response = await axios.post(
-                this.apiUri + `/calculator/calculate?${expression}`,
-            )
+            const payload = { expression: expression }
+            const response = await axios.post(
+                this.apiUri + '/calculator/calculate', payload 
+            );
+            if (response.status === 200)
+            {
+                const answer = response.data;
+                return answer;
+            }
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error calculating expression:", error);
         }
-        console.log(response)
-        return response;
     }
 }
 
