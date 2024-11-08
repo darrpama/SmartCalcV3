@@ -15,7 +15,13 @@
 <!--        <Exec Command="mkdir -p ./CoreLibs" />-->
 <!--        <Exec Command="cp ../CshCalculatorLibWrapper/CoreCpp/include/* ./CoreLibs" />-->
 <!--    </Target>-->
-
+    
+    <ItemGroup>
+        <Content Include="appsettings.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    
     <ItemGroup>
         <None Update="CoreLibs/*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -31,6 +37,7 @@
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.1" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.1" />
         <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.0-rc4.5" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
     </ItemGroup>
 
     <ItemGroup>

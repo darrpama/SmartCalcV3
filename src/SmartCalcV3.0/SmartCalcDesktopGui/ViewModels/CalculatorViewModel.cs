@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using ReactiveUI;
 using LiveChartsCore;
@@ -11,15 +12,23 @@ using LiveChartsCore.SkiaSharpView.Painting.Effects;
 using SkiaSharp;
 
 using CalculatorModel.Models;
+using SmartCalcDesktopGui.Services;
 
 namespace SmartCalcDesktopGui.ViewModels;
 
 public class CalculatorViewModel: ViewModelBase
 {
+    public CalculatorViewModel(HistoryService historyService)
+    {
+        _historyService = historyService;
+    }
+    
     private static CalcCore _calc = new CalcCore();
+    
+    private readonly HistoryService _historyService;
 
-    private string _expression = "";
-    private string _answer = "";
+    private string _currentExpression = "";
+    private string _currentAnswer = "";
     private double _xmin = 0.0;
     private double _xmax = 1.0;
     private double _xval = 0.0;
@@ -128,16 +137,16 @@ public class CalculatorViewModel: ViewModelBase
             }
         };
     
-    public string Expression
+    public string CurrentExpression
     {
-        get => _expression;
-        set => this.RaiseAndSetIfChanged(ref _expression, value);
+        get => _currentExpression;
+        set => this.RaiseAndSetIfChanged(ref _currentExpression, value);
     }
     
-    public string Answer
+    public string CurrentAnswer
     {
-        get => _answer;
-        set => this.RaiseAndSetIfChanged(ref _answer, value);
+        get => _currentAnswer;
+        set => this.RaiseAndSetIfChanged(ref _currentAnswer, value);
     }
 
     public double Xmin
@@ -172,16 +181,18 @@ public class CalculatorViewModel: ViewModelBase
     {
         try
         {
-            Series[0].Values = _calc.GetGraph(Expression, Xmin, Xmax);
+            Series[0].Values = _calc.GetGraph(CurrentExpression, Xmin, Xmax);
         }
         catch (Exception e)
         {
-            Answer = e.Message;
+            CurrentAnswer = e.Message;
         }
     }
 
     public void OnEqualButtonClickCommand()
     {
-        Answer = _calc.Calculate(Expression.Replace("x", XVal.ToString(CultureInfo.InvariantCulture)));
+        string expressionWithRepacedX = CurrentExpression.Replace("x", XVal.ToString(CultureInfo.InvariantCulture));
+        CurrentAnswer = _calc.Calculate(expressionWithRepacedX);
+        _historyService.AddToHistory(expressionWithRepacedX, CurrentAnswer);
     }
 }

@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using SmartCalcDesktopGui.ViewModels;
 
 namespace SmartCalcDesktopGui.Views;
 

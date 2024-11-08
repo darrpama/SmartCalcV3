@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SmartCalcDesktopGui.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SmartCalcDesktopGui.Views.HistoryView"
+             x:DataType="vm:HistoryViewModel">
+    <Grid>
+        <Grid.RowDefinitions>10*,*</Grid.RowDefinitions>
+        <ListBox Grid.Row="0" ItemsSource="{Binding History}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Expression}"></TextBlock>
+                        <TextBlock Text="{Binding Result}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>>
+        </ListBox>
+        <Button Grid.Row="1" Command="{Binding OnClearHistoryButtonCommand}">Clear history</Button>
+    </Grid>
+    
+</UserControl>

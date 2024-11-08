@@ -69,8 +69,8 @@
             <Grid.ColumnDefinitions>*,*,*,*,*,*</Grid.ColumnDefinitions>
             <Grid.RowDefinitions>*,*,*,*,*,*</Grid.RowDefinitions>
             
-            <TextBox x:Name="ExpressionTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Expression}" Watermark="Expression" Margin="2"></TextBox>
-            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Answer}" Watermark="Answer" Margin="2"></TextBox>
+            <TextBox x:Name="ExpressionTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding CurrentExpression}" Watermark="Expression" Margin="2"></TextBox>
+            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CurrentAnswer}" Watermark="Answer" Margin="2"></TextBox>
             <Button Click="Calculator_Button_OnClick" x:Name="DivButton" Grid.Row="0" Grid.Column="3" Content="/" HotKey="Divide"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="OpenBracketButton" Grid.Row="0" Grid.Column="4" Content="(" HotKey="Shift+D9"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="CloseBracketButton" Grid.Row="0" Grid.Column="5" Content=")" HotKey="Shift+D0"></Button>

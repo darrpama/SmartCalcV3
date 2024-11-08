@@ -26,6 +26,9 @@
         <TabItem Header="Calculator"
                  Content="{Binding CalculatorContentViewModel}">
         </TabItem>
+        <TabItem Header="History"
+                 Content="{Binding HistoryContentViewModel}">
+        </TabItem>
             
             
     </TabControl>
