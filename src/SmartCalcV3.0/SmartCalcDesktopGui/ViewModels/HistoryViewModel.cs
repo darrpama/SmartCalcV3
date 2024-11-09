@@ -15,11 +15,12 @@ public class HistoryViewModel : ViewModelBase
 
     public HistoryService HistoryService { get; set; }
 
-    public ObservableCollection<CalculatorHistoryItem> History {
+    public ObservableCollection<CalculatorHistoryItem> History
+    {
         get => HistoryService.History;
         set => HistoryService.History = value;
     }
-
+    
     public void OnClearHistoryButtonCommand()
     {
         HistoryService.ClearHistory();
