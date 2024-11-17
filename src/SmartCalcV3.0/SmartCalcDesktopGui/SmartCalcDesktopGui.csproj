@@ -6,6 +6,12 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <PublishTrimmed>false</PublishTrimmed>
+        <PublishReadyToRun>true</PublishReadyToRun>
+
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="Assets\**" />
