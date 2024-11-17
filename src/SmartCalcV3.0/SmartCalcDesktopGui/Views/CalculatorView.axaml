@@ -37,10 +37,9 @@
         </lvc:CartesianChart> 
         
         <Grid Grid.Row="1" Margin="2">
-            
             <Grid.ColumnDefinitions>*,2*,*,2*,*,2*</Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Text="x min" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <NumericUpDown Grid.Column="1" Watermark="min" TextAlignment="Left" Maximum="{Binding Xmax}" Value="{Binding Xmin}">
+            <NumericUpDown Grid.Column="1" Watermark="min" TextAlignment="Left" Maximum="{Binding Xmax}" Minimum="-1000000" Value="{Binding Xmin}">
                 <NumericUpDown.ContextFlyout>
                     <Flyout>
                         <TextBlock Text="x min"/>
@@ -48,7 +47,7 @@
                 </NumericUpDown.ContextFlyout>
             </NumericUpDown>
             <TextBlock Grid.Column="2" Text="x max" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <NumericUpDown Grid.Column="3" Watermark="max" TextAlignment="Left" Minimum="{Binding Xmin}" Value="{Binding Xmax}">
+            <NumericUpDown Grid.Column="3" Watermark="max" TextAlignment="Left" Minimum="{Binding Xmin}" Maximum="1000000" Value="{Binding Xmax}">
                 <NumericUpDown.ContextFlyout>
                     <Flyout>
                         <TextBlock Text="x max"/>
@@ -69,14 +68,14 @@
             <Grid.ColumnDefinitions>*,*,*,*,*,*</Grid.ColumnDefinitions>
             <Grid.RowDefinitions>*,*,*,*,*,*</Grid.RowDefinitions>
             
-            <TextBox x:Name="ExpressionTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding CurrentExpression}" Watermark="Expression" Margin="2"></TextBox>
+            <TextBox x:Name="ExpressionTextBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding CurrentExpression}" MaxLength="255" Watermark="Expression" Margin="2"></TextBox>
             <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding CurrentAnswer}" Watermark="Answer" Margin="2"></TextBox>
             <Button Click="Calculator_Button_OnClick" x:Name="DivButton" Grid.Row="0" Grid.Column="3" Content="/" HotKey="Divide"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="OpenBracketButton" Grid.Row="0" Grid.Column="4" Content="(" HotKey="Shift+D9"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="CloseBracketButton" Grid.Row="0" Grid.Column="5" Content=")" HotKey="Shift+D0"></Button>
             
-            <Button Click="Calculator_Button_OnClick" x:Name="AcButton" Grid.Row="1" Grid.Column="0" Content="AC" HotKey="Delete"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="DelButton" Grid.Row="1" Grid.Column="1" Content="Del" HotKey="Back"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="AcButton" Grid.Row="1" Grid.Column="0" Content="AC"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="DelButton" Grid.Row="1" Grid.Column="1" Content="Del"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="PowButton" Grid.Row="1" Grid.Column="2" Content="^" HotKey="Shift+D6"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="MulButton" Grid.Row="1" Grid.Column="3" Content="*" HotKey="Shift+D8"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="ModButton" Grid.Row="1" Grid.Column="4" Content="mod" HotKey="M"></Button>
@@ -92,7 +91,7 @@
             <Button Click="Calculator_Button_OnClick" x:Name="FourButton" Grid.Row="3" Grid.Column="0" Content="4" HotKey="D4"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="FiveButton" Grid.Row="3" Grid.Column="1" Content="5" HotKey="D5"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="SixButton" Grid.Row="3" Grid.Column="2" Content="6" HotKey="D6"></Button>
-            <Button Click="Calculator_Button_OnClick" x:Name="PlusButton" Grid.Row="3" Grid.Column="3" Content="+" HotKey="OemPlus"></Button>
+            <Button Click="Calculator_Button_OnClick" x:Name="PlusButton" Grid.Row="3" Grid.Column="3" Content="+" HotKey="Shift+OemPlus"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="SinButton" Grid.Row="3" Grid.Column="4" Content="sin" HotKey="S"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="ASinButton" Grid.Row="3" Grid.Column="5" Content="asin" HotKey="Ctrl+S"></Button>
             
@@ -106,7 +105,7 @@
             <Button Click="Calculator_Button_OnClick" x:Name="ZeroButton" Grid.Row="5" Grid.Column="0" Content="0" HotKey="D0"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="DotButton" Grid.Row="5" Grid.Column="1" Content="." HotKey="Decimal"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="XButton" Grid.Row="5" Grid.Column="2" Content="x" HotKey="X"></Button>
-            <Button Command="{Binding OnEqualButtonClickCommand}" x:Name="EqualsButton" HotKey="Enter" Grid.Row="5" Grid.Column="3" Content="="></Button>
+            <Button Command="{Binding OnEqualButtonClickCommand}" x:Name="EqualsButton" HotKey="OemPlus" Grid.Row="5" Grid.Column="3" Content="="></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="TanButton" Grid.Row="5" Grid.Column="4" Content="tan" HotKey="T"></Button>
             <Button Click="Calculator_Button_OnClick" x:Name="ATanButton" Grid.Row="5" Grid.Column="5" Content="atan" HotKey="Ctrl+T"></Button>
         </Grid>
