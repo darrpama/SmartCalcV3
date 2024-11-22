@@ -29,8 +29,9 @@
         <TabItem Header="History"
                  Content="{Binding HistoryContentViewModel}">
         </TabItem>
-            
-            
+        <TabItem Header="Help"
+                 Content="{Binding HelpContentViewModel}">
+        </TabItem>
     </TabControl>
 
     

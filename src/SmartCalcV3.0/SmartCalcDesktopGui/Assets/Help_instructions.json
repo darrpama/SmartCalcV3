@@ -28,7 +28,9 @@
     "a*b",
     "a/b",
     "a^b",
-    "a%b"
+    "a%b",
+    "+a",
+    "-a"
   ],
   "FunctionsExamples": [
     "cos(x)",
