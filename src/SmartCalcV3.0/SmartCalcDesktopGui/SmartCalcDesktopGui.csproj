@@ -7,7 +7,7 @@
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 
-        <OutputPath>bin\$(Configuration)\$(Platform)\ControlCatalog.NetCore.app/Contents/MacOS</OutputPath>
+        <OutputPath>bin\$(Configuration)\$(Platform)\ControlCatalog.NetCore.app\Contents\MacOS</OutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <UseAppHost>true</UseAppHost>
 
@@ -31,15 +31,15 @@
         <Content Include="appsettings.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-        <Content Include="Assets/Help_instructions.json">
+        <Content Include="Assets\Help_instructions.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
     
     <ItemGroup>
-        <None Update="CoreLibs/*">
+        <Content Update="CoreLibs\*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
